@@ -12,8 +12,9 @@ import CurrencySelect from "./currency-select"
 import { useDebounce } from "@currency-exchanger/lib/util"
 import Skeleton from "./exchange-skeleton"
 import ConversionResult from "./conversion-result"
+import locale from "@currency-exchanger/lib/locale.json"
 
-const currenciesInitialValues = { fromCurrency: '', toCurrency: '' }
+const DEFAULT_CURRENCIES = { fromCurrency: '', toCurrency: '' }
 
 const DEFAULT_AMOUNT = '1.0'
 
@@ -22,7 +23,7 @@ interface ExchangeFormProps {
 }
 
 export default function({ listQuotes }: ExchangeFormProps) {
-    const [selectedCurrencies, setSelectedCurrencies] = useState(currenciesInitialValues)
+    const [selectedCurrencies, setSelectedCurrencies] = useState(DEFAULT_CURRENCIES)
     const [exchangeAmount, setExchangeAmount] = useState(DEFAULT_AMOUNT)
     const amountInputRef = useRef<HTMLInputElement>(null)
     const debounceOnAmountchange = useDebounce()
@@ -41,7 +42,7 @@ export default function({ listQuotes }: ExchangeFormProps) {
     }
 
     function resetForm() {
-        setSelectedCurrencies(currenciesInitialValues)
+        setSelectedCurrencies(DEFAULT_CURRENCIES)
         setExchangeAmount(DEFAULT_AMOUNT)
         if (amountInputRef.current instanceof HTMLInputElement) {
             amountInputRef.current.value = DEFAULT_AMOUNT
@@ -60,7 +61,7 @@ export default function({ listQuotes }: ExchangeFormProps) {
         <Skeleton 
             amount={
                 <>
-                    <Label htmlFor="amount">Amount</Label>
+                    <Label htmlFor="amount">{locale.amount}</Label>
                     <Input
                         ref={amountInputRef}
                         defaultValue={DEFAULT_AMOUNT}
@@ -75,7 +76,7 @@ export default function({ listQuotes }: ExchangeFormProps) {
             } 
             selectFrom={
                 <>
-                    <Label htmlFor="from">From</Label>
+                    <Label htmlFor="from">{locale.from}</Label>
                     <CurrencySelect
                         name="from-currency"
                         value={fromCurrency}
@@ -102,7 +103,7 @@ export default function({ listQuotes }: ExchangeFormProps) {
             }
             selectTo={
                 <>
-                    <Label htmlFor="to">To</Label>
+                    <Label htmlFor="to">{locale.to}</Label>
                     <CurrencySelect
                         name="to-currency"
                         value={toCurrency}
@@ -119,7 +120,7 @@ export default function({ listQuotes }: ExchangeFormProps) {
             footer={
                 <>
                     <Button onClick={() => resetForm()}>
-                        Reset
+                        {locale.reset}
                     </Button>
                     <Suspense fallback={<SkeletonLoader className="h-4 w-full mt-4" />}>
                         <ConversionResult 
