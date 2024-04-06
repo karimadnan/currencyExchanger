@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Ubuntu } from "next/font/google";
 import "./globals.css";
+import { BackgroundImage } from "@currency-exchanger/lib/ui";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Ubuntu({ subsets: ["latin"], weight: ['300', '500', '700'] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+        <BackgroundImage />
+      </body>
     </html>
   );
 }
