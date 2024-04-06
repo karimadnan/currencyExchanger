@@ -8,6 +8,7 @@ export default function Page() {
                 src={'/images/background-image.jpg'} 
                 alt="background-image" 
                 fill
+                priority
             />
             <div className="absolute left-0 top-0 bg-blue-900 opacity-60 h-full w-full -z-[1]" />
         </>
