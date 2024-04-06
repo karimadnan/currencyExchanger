@@ -1,7 +1,7 @@
 import { SkeletonLoader } from "@currency-exchanger/lib/ui";
 import { ExchangeSkeleton } from "./exchange-calculator/components";
 
-export default function() {
+export default function Loading() {
     return (
         <div className="h-screen w-screen">
             <ExchangeSkeleton

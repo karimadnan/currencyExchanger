@@ -1,7 +1,7 @@
 import { cn } from "../util"
 
  
-export default function({
+export default function SkeletonLoader({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {

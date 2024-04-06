@@ -9,7 +9,7 @@ interface SkeletonProps {
     footer: ReactNode
 }
 
-export default function({ amount, selectFrom, swapButton, selectTo, footer }: SkeletonProps) {
+export default function ExchangeSkeleton({ amount, selectFrom, swapButton, selectTo, footer }: SkeletonProps) {
     return (
         <div className="flex flex-col justify-center items-center h-full w-full">
             <h1 className='text-white text-4xl font-black p-14'>

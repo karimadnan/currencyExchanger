@@ -12,7 +12,7 @@ interface CurrencySelectProps extends React.ComponentProps<typeof Select> {
     options: string[]
 }
 
-export default function({
+export default function CurrencySelect({
     options,
     disabledValue,
     ...rest

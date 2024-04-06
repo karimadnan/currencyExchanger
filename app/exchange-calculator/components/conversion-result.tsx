@@ -8,7 +8,7 @@ interface ConversionResultProps {
     amount: string
 }
 
-export default async function({ fromCurrency, toCurrency, amount, listQuotes }: ConversionResultProps) {
+export default async function ConversionResult({ fromCurrency, toCurrency, amount, listQuotes }: ConversionResultProps) {
     if (!fromCurrency || !toCurrency || !amount) return null
 
     const getConversionRate = await queryClient(`convert-${fromCurrency}-${toCurrency}-${amount}`, () => getExchangeRate({ 

@@ -24,7 +24,7 @@ interface ExchangeFormProps {
     listQuotes: Record<string, string>
 }
 
-export default function({ listQuotes }: ExchangeFormProps) {
+export default function ExchangeForm({ listQuotes }: ExchangeFormProps) {
     const [selectedCurrencies, setSelectedCurrencies] = useState(DEFAULT_CURRENCIES)
     const [exchangeAmount, setExchangeAmount] = useState(DEFAULT_AMOUNT)
     const amountInputRef = useRef<HTMLInputElement>(null)
