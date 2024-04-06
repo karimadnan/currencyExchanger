@@ -13,10 +13,12 @@ import { useDebounce } from "@currency-exchanger/lib/util"
 import Skeleton from "./exchange-skeleton"
 import ConversionResult from "./conversion-result"
 import locale from "@currency-exchanger/lib/locale.json"
+import { 
+    CONVERT_DEBOUNCE_MILLISECONDS, 
+    DEFAULT_AMOUNT,
+    DEFAULT_CURRENCIES } 
+from "../config"
 
-const DEFAULT_CURRENCIES = { fromCurrency: '', toCurrency: '' }
-
-const DEFAULT_AMOUNT = '1.0'
 
 interface ExchangeFormProps {
     listQuotes: Record<string, string>
@@ -53,7 +55,7 @@ export default function({ listQuotes }: ExchangeFormProps) {
         if (value) {
             debounceOnAmountchange(async () => {  
                 setExchangeAmount(value)
-            }, 2000)
+            }, CONVERT_DEBOUNCE_MILLISECONDS)
         }
     }
     
