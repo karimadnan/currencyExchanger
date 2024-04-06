@@ -12,7 +12,7 @@ interface SkeletonProps {
 export default function ExchangeSkeleton({ amount, selectFrom, swapButton, selectTo, footer }: SkeletonProps) {
     return (
         <div className="flex flex-col justify-center items-center h-full w-full">
-            <h1 className='text-white text-4xl font-black p-14'>
+            <h1 className='text-white text-center text-4xl font-black p-14'>
                 {locale.appTitle}
             </h1>
             <div className="p-10 place-items-center min-h-fit w-[70%] bg-white rounded-xl shadow-lg">
