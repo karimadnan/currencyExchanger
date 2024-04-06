@@ -16,8 +16,8 @@ export default async function({ fromCurrency, toCurrency, amount, listQuotes }: 
         amount
     })
 
-    const [fromCurrenyName, toCurrencyName] = [listQuotes[fromCurrency], listQuotes[toCurrency]]
+    const conversionResult = String(getConversionRate.data.result)
 
-    const conversionString = `${amount} ${fromCurrenyName} equals ${String(getConversionRate.data.result)} ${toCurrencyName}`
+    const conversionString = `${amount} ${listQuotes[fromCurrency]} equals ${conversionResult} ${listQuotes[toCurrency]}`
     return conversionString
 }
