@@ -58,7 +58,7 @@ export default function({ listQuotes }: ExchangeFormProps) {
             }, CONVERT_DEBOUNCE_MILLISECONDS)
         }
     }
-    
+
     return (
         <Skeleton 
             amount={
